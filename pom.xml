@@ -5,6 +5,10 @@
     <groupId>com.learn</groupId>
     <artifactId>demomarket</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
     <name>demomarket</name>
     <description>demomarket-parent-maven-proj</description>
     <packaging>pom</packaging>
@@ -15,6 +19,9 @@
         <module>demomarket-order</module>
         <module>demomarket-product</module>
         <module>demomarket-ware</module>
+        <module>renren-fast</module>
+        <module>renren-generator-master</module>
+        <module>demomarket-common</module>
     </modules>
 
 </project>
