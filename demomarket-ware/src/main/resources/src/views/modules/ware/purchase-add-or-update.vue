@@ -4,29 +4,32 @@
     :close-on-click-modal="false"
     :visible.sync="visible">
     <el-form :model="dataForm" :rules="dataRule" ref="dataForm" @keyup.enter.native="dataFormSubmit()" label-width="80px">
-    <el-form-item label="" prop="branchId">
-      <el-input v-model="dataForm.branchId" placeholder=""></el-input>
+    <el-form-item label="" prop="assigneeId">
+      <el-input v-model="dataForm.assigneeId" placeholder=""></el-input>
     </el-form-item>
-    <el-form-item label="" prop="xid">
-      <el-input v-model="dataForm.xid" placeholder=""></el-input>
+    <el-form-item label="" prop="assigneeName">
+      <el-input v-model="dataForm.assigneeName" placeholder=""></el-input>
     </el-form-item>
-    <el-form-item label="" prop="context">
-      <el-input v-model="dataForm.context" placeholder=""></el-input>
+    <el-form-item label="" prop="phone">
+      <el-input v-model="dataForm.phone" placeholder=""></el-input>
     </el-form-item>
-    <el-form-item label="" prop="rollbackInfo">
-      <el-input v-model="dataForm.rollbackInfo" placeholder=""></el-input>
+    <el-form-item label="" prop="priority">
+      <el-input v-model="dataForm.priority" placeholder=""></el-input>
     </el-form-item>
-    <el-form-item label="" prop="logStatus">
-      <el-input v-model="dataForm.logStatus" placeholder=""></el-input>
+    <el-form-item label="" prop="status">
+      <el-input v-model="dataForm.status" placeholder=""></el-input>
     </el-form-item>
-    <el-form-item label="" prop="logCreated">
-      <el-input v-model="dataForm.logCreated" placeholder=""></el-input>
+    <el-form-item label="" prop="wareId">
+      <el-input v-model="dataForm.wareId" placeholder=""></el-input>
     </el-form-item>
-    <el-form-item label="" prop="logModified">
-      <el-input v-model="dataForm.logModified" placeholder=""></el-input>
+    <el-form-item label="" prop="amount">
+      <el-input v-model="dataForm.amount" placeholder=""></el-input>
     </el-form-item>
-    <el-form-item label="" prop="ext">
-      <el-input v-model="dataForm.ext" placeholder=""></el-input>
+    <el-form-item label="" prop="createTime">
+      <el-input v-model="dataForm.createTime" placeholder=""></el-input>
+    </el-form-item>
+    <el-form-item label="" prop="updateTime">
+      <el-input v-model="dataForm.updateTime" placeholder=""></el-input>
     </el-form-item>
     </el-form>
     <span slot="footer" class="dialog-footer">
@@ -43,38 +46,42 @@
         visible: false,
         dataForm: {
           id: 0,
-          branchId: '',
-          xid: '',
-          context: '',
-          rollbackInfo: '',
-          logStatus: '',
-          logCreated: '',
-          logModified: '',
-          ext: ''
+          assigneeId: '',
+          assigneeName: '',
+          phone: '',
+          priority: '',
+          status: '',
+          wareId: '',
+          amount: '',
+          createTime: '',
+          updateTime: ''
         },
         dataRule: {
-          branchId: [
+          assigneeId: [
             { required: true, message: '不能为空', trigger: 'blur' }
           ],
-          xid: [
+          assigneeName: [
             { required: true, message: '不能为空', trigger: 'blur' }
           ],
-          context: [
+          phone: [
             { required: true, message: '不能为空', trigger: 'blur' }
           ],
-          rollbackInfo: [
+          priority: [
             { required: true, message: '不能为空', trigger: 'blur' }
           ],
-          logStatus: [
+          status: [
             { required: true, message: '不能为空', trigger: 'blur' }
           ],
-          logCreated: [
+          wareId: [
             { required: true, message: '不能为空', trigger: 'blur' }
           ],
-          logModified: [
+          amount: [
             { required: true, message: '不能为空', trigger: 'blur' }
           ],
-          ext: [
+          createTime: [
+            { required: true, message: '不能为空', trigger: 'blur' }
+          ],
+          updateTime: [
             { required: true, message: '不能为空', trigger: 'blur' }
           ]
         }
@@ -88,19 +95,20 @@
           this.$refs['dataForm'].resetFields()
           if (this.dataForm.id) {
             this.$http({
-              url: this.$http.adornUrl(`/order/undolog/info/${this.dataForm.id}`),
+              url: this.$http.adornUrl(`/ware/purchase/info/${this.dataForm.id}`),
               method: 'get',
               params: this.$http.adornParams()
             }).then(({data}) => {
               if (data && data.code === 0) {
-                this.dataForm.branchId = data.undoLog.branchId
-                this.dataForm.xid = data.undoLog.xid
-                this.dataForm.context = data.undoLog.context
-                this.dataForm.rollbackInfo = data.undoLog.rollbackInfo
-                this.dataForm.logStatus = data.undoLog.logStatus
-                this.dataForm.logCreated = data.undoLog.logCreated
-                this.dataForm.logModified = data.undoLog.logModified
-                this.dataForm.ext = data.undoLog.ext
+                this.dataForm.assigneeId = data.purchase.assigneeId
+                this.dataForm.assigneeName = data.purchase.assigneeName
+                this.dataForm.phone = data.purchase.phone
+                this.dataForm.priority = data.purchase.priority
+                this.dataForm.status = data.purchase.status
+                this.dataForm.wareId = data.purchase.wareId
+                this.dataForm.amount = data.purchase.amount
+                this.dataForm.createTime = data.purchase.createTime
+                this.dataForm.updateTime = data.purchase.updateTime
               }
             })
           }
@@ -111,18 +119,19 @@
         this.$refs['dataForm'].validate((valid) => {
           if (valid) {
             this.$http({
-              url: this.$http.adornUrl(`/order/undolog/${!this.dataForm.id ? 'save' : 'update'}`),
+              url: this.$http.adornUrl(`/ware/purchase/${!this.dataForm.id ? 'save' : 'update'}`),
               method: 'post',
               data: this.$http.adornData({
                 'id': this.dataForm.id || undefined,
-                'branchId': this.dataForm.branchId,
-                'xid': this.dataForm.xid,
-                'context': this.dataForm.context,
-                'rollbackInfo': this.dataForm.rollbackInfo,
-                'logStatus': this.dataForm.logStatus,
-                'logCreated': this.dataForm.logCreated,
-                'logModified': this.dataForm.logModified,
-                'ext': this.dataForm.ext
+                'assigneeId': this.dataForm.assigneeId,
+                'assigneeName': this.dataForm.assigneeName,
+                'phone': this.dataForm.phone,
+                'priority': this.dataForm.priority,
+                'status': this.dataForm.status,
+                'wareId': this.dataForm.wareId,
+                'amount': this.dataForm.amount,
+                'createTime': this.dataForm.createTime,
+                'updateTime': this.dataForm.updateTime
               })
             }).then(({data}) => {
               if (data && data.code === 0) {

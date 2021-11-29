@@ -6,8 +6,8 @@
       </el-form-item>
       <el-form-item>
         <el-button @click="getDataList()">查询</el-button>
-        <el-button v-if="isAuth('coupon:undolog:save')" type="primary" @click="addOrUpdateHandle()">新增</el-button>
-        <el-button v-if="isAuth('coupon:undolog:delete')" type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
+        <el-button v-if="isAuth('ware:wareordertaskdetail:save')" type="primary" @click="addOrUpdateHandle()">新增</el-button>
+        <el-button v-if="isAuth('ware:wareordertaskdetail:delete')" type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
       </el-form-item>
     </el-form>
     <el-table
@@ -26,55 +26,43 @@
         prop="id"
         header-align="center"
         align="center"
-        label="">
+        label="id">
       </el-table-column>
       <el-table-column
-        prop="branchId"
+        prop="skuId"
         header-align="center"
         align="center"
-        label="">
+        label="sku_id">
       </el-table-column>
       <el-table-column
-        prop="xid"
+        prop="skuName"
         header-align="center"
         align="center"
-        label="">
+        label="sku_name">
       </el-table-column>
       <el-table-column
-        prop="context"
+        prop="skuNum"
         header-align="center"
         align="center"
-        label="">
+        label="购买个数">
       </el-table-column>
       <el-table-column
-        prop="rollbackInfo"
+        prop="taskId"
         header-align="center"
         align="center"
-        label="">
+        label="工作单id">
       </el-table-column>
       <el-table-column
-        prop="logStatus"
+        prop="wareId"
         header-align="center"
         align="center"
-        label="">
+        label="仓库id">
       </el-table-column>
       <el-table-column
-        prop="logCreated"
+        prop="lockStatus"
         header-align="center"
         align="center"
-        label="">
-      </el-table-column>
-      <el-table-column
-        prop="logModified"
-        header-align="center"
-        align="center"
-        label="">
-      </el-table-column>
-      <el-table-column
-        prop="ext"
-        header-align="center"
-        align="center"
-        label="">
+        label="1-已锁定  2-已解锁  3-扣减">
       </el-table-column>
       <el-table-column
         fixed="right"
@@ -103,7 +91,7 @@
 </template>
 
 <script>
-  import AddOrUpdate from './undolog-add-or-update'
+  import AddOrUpdate from './wareordertaskdetail-add-or-update'
   export default {
     data () {
       return {
@@ -130,7 +118,7 @@
       getDataList () {
         this.dataListLoading = true
         this.$http({
-          url: this.$http.adornUrl('/coupon/undolog/list'),
+          url: this.$http.adornUrl('/ware/wareordertaskdetail/list'),
           method: 'get',
           params: this.$http.adornParams({
             'page': this.pageIndex,
@@ -181,7 +169,7 @@
           type: 'warning'
         }).then(() => {
           this.$http({
-            url: this.$http.adornUrl('/coupon/undolog/delete'),
+            url: this.$http.adornUrl('/ware/wareordertaskdetail/delete'),
             method: 'post',
             data: this.$http.adornData(ids, false)
           }).then(({data}) => {

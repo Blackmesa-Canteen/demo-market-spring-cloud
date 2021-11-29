@@ -6,8 +6,8 @@
       </el-form-item>
       <el-form-item>
         <el-button @click="getDataList()">查询</el-button>
-        <el-button v-if="isAuth('order:undolog:save')" type="primary" @click="addOrUpdateHandle()">新增</el-button>
-        <el-button v-if="isAuth('order:undolog:delete')" type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
+        <el-button v-if="isAuth('ware:wareordertask:save')" type="primary" @click="addOrUpdateHandle()">新增</el-button>
+        <el-button v-if="isAuth('ware:wareordertask:delete')" type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
       </el-form-item>
     </el-form>
     <el-table
@@ -26,55 +26,85 @@
         prop="id"
         header-align="center"
         align="center"
-        label="">
+        label="id">
       </el-table-column>
       <el-table-column
-        prop="branchId"
+        prop="orderId"
         header-align="center"
         align="center"
-        label="">
+        label="order_id">
       </el-table-column>
       <el-table-column
-        prop="xid"
+        prop="orderSn"
         header-align="center"
         align="center"
-        label="">
+        label="order_sn">
       </el-table-column>
       <el-table-column
-        prop="context"
+        prop="consignee"
         header-align="center"
         align="center"
-        label="">
+        label="收货人">
       </el-table-column>
       <el-table-column
-        prop="rollbackInfo"
+        prop="consigneeTel"
         header-align="center"
         align="center"
-        label="">
+        label="收货人电话">
       </el-table-column>
       <el-table-column
-        prop="logStatus"
+        prop="deliveryAddress"
         header-align="center"
         align="center"
-        label="">
+        label="配送地址">
       </el-table-column>
       <el-table-column
-        prop="logCreated"
+        prop="orderComment"
         header-align="center"
         align="center"
-        label="">
+        label="订单备注">
       </el-table-column>
       <el-table-column
-        prop="logModified"
+        prop="paymentWay"
         header-align="center"
         align="center"
-        label="">
+        label="付款方式【 1:在线付款 2:货到付款】">
       </el-table-column>
       <el-table-column
-        prop="ext"
+        prop="taskStatus"
         header-align="center"
         align="center"
-        label="">
+        label="任务状态">
+      </el-table-column>
+      <el-table-column
+        prop="orderBody"
+        header-align="center"
+        align="center"
+        label="订单描述">
+      </el-table-column>
+      <el-table-column
+        prop="trackingNo"
+        header-align="center"
+        align="center"
+        label="物流单号">
+      </el-table-column>
+      <el-table-column
+        prop="createTime"
+        header-align="center"
+        align="center"
+        label="create_time">
+      </el-table-column>
+      <el-table-column
+        prop="wareId"
+        header-align="center"
+        align="center"
+        label="仓库id">
+      </el-table-column>
+      <el-table-column
+        prop="taskComment"
+        header-align="center"
+        align="center"
+        label="工作单备注">
       </el-table-column>
       <el-table-column
         fixed="right"
@@ -103,7 +133,7 @@
 </template>
 
 <script>
-  import AddOrUpdate from './undolog-add-or-update'
+  import AddOrUpdate from './wareordertask-add-or-update'
   export default {
     data () {
       return {
@@ -130,7 +160,7 @@
       getDataList () {
         this.dataListLoading = true
         this.$http({
-          url: this.$http.adornUrl('/order/undolog/list'),
+          url: this.$http.adornUrl('/ware/wareordertask/list'),
           method: 'get',
           params: this.$http.adornParams({
             'page': this.pageIndex,
@@ -181,7 +211,7 @@
           type: 'warning'
         }).then(() => {
           this.$http({
-            url: this.$http.adornUrl('/order/undolog/delete'),
+            url: this.$http.adornUrl('/ware/wareordertask/delete'),
             method: 'post',
             data: this.$http.adornData(ids, false)
           }).then(({data}) => {

@@ -6,8 +6,8 @@
       </el-form-item>
       <el-form-item>
         <el-button @click="getDataList()">查询</el-button>
-        <el-button v-if="isAuth('product:undolog:save')" type="primary" @click="addOrUpdateHandle()">新增</el-button>
-        <el-button v-if="isAuth('product:undolog:delete')" type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
+        <el-button v-if="isAuth('ware:purchase:save')" type="primary" @click="addOrUpdateHandle()">新增</el-button>
+        <el-button v-if="isAuth('ware:purchase:delete')" type="danger" @click="deleteHandle()" :disabled="dataListSelections.length <= 0">批量删除</el-button>
       </el-form-item>
     </el-form>
     <el-table
@@ -29,49 +29,55 @@
         label="">
       </el-table-column>
       <el-table-column
-        prop="branchId"
+        prop="assigneeId"
         header-align="center"
         align="center"
         label="">
       </el-table-column>
       <el-table-column
-        prop="xid"
+        prop="assigneeName"
         header-align="center"
         align="center"
         label="">
       </el-table-column>
       <el-table-column
-        prop="context"
+        prop="phone"
         header-align="center"
         align="center"
         label="">
       </el-table-column>
       <el-table-column
-        prop="rollbackInfo"
+        prop="priority"
         header-align="center"
         align="center"
         label="">
       </el-table-column>
       <el-table-column
-        prop="logStatus"
+        prop="status"
         header-align="center"
         align="center"
         label="">
       </el-table-column>
       <el-table-column
-        prop="logCreated"
+        prop="wareId"
         header-align="center"
         align="center"
         label="">
       </el-table-column>
       <el-table-column
-        prop="logModified"
+        prop="amount"
         header-align="center"
         align="center"
         label="">
       </el-table-column>
       <el-table-column
-        prop="ext"
+        prop="createTime"
+        header-align="center"
+        align="center"
+        label="">
+      </el-table-column>
+      <el-table-column
+        prop="updateTime"
         header-align="center"
         align="center"
         label="">
@@ -103,7 +109,7 @@
 </template>
 
 <script>
-  import AddOrUpdate from './undolog-add-or-update'
+  import AddOrUpdate from './purchase-add-or-update'
   export default {
     data () {
       return {
@@ -130,7 +136,7 @@
       getDataList () {
         this.dataListLoading = true
         this.$http({
-          url: this.$http.adornUrl('/product/undolog/list'),
+          url: this.$http.adornUrl('/ware/purchase/list'),
           method: 'get',
           params: this.$http.adornParams({
             'page': this.pageIndex,
@@ -181,7 +187,7 @@
           type: 'warning'
         }).then(() => {
           this.$http({
-            url: this.$http.adornUrl('/product/undolog/delete'),
+            url: this.$http.adornUrl('/ware/purchase/delete'),
             method: 'post',
             data: this.$http.adornData(ids, false)
           }).then(({data}) => {
