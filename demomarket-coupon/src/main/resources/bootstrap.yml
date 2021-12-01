@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: demomarket-coupon
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 08bf4812-52d7-42d8-9314-b237621959e5

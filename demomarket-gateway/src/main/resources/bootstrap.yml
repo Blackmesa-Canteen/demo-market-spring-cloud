@@ -1,0 +1,12 @@
+server:
+  port: 88
+
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: d1fca7c5-1f55-4eba-88ef-a5195e64ff0e
+  application:
+    name: demomarket-gateway
+
