@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: demomarket-product
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 9b7ba1f1-5887-44fa-a67a-348925eec33e
