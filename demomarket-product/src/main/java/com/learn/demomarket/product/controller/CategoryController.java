@@ -80,11 +80,18 @@ public class CategoryController {
 
     /**
      * 删除
+     *
+     * @RequestBody: 获取POST请求体
+     * 如果请求体是JSON,那么SpringMVC自动将请求体数据转为对应对象
      */
     @RequestMapping("/delete")
     // @RequiresPermissions("product:category:delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
+
+        // 首先检查次category是否在其他表中被使用,所以把这个默认方法注释掉,用新方法
+//		categoryService.removeByIds(Arrays.asList(catIds));
+
+        categoryService.removeMenuByIds(Arrays.asList(catIds));
 
         return R.ok();
     }

@@ -1,0 +1,79 @@
+失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:42:59--  (尝试次数： 2)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:43:28--  (尝试次数： 3)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:43:57--  (尝试次数： 4)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:44:27--  (尝试次数： 5)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:44:58--  (尝试次数： 6)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:45:30--  (尝试次数： 7)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:46:04--  (尝试次数： 8)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:46:38--  (尝试次数： 9)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:47:13--  (尝试次数：10)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:47:49--  (尝试次数：11)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:48:25--  (尝试次数：12)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:49:01--  (尝试次数：13)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:49:38--  (尝试次数：14)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:50:14--  (尝试次数：15)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:50:50--  (尝试次数：16)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:51:26--  (尝试次数：17)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:52:03--  (尝试次数：18)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:52:39--  (尝试次数：19)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+重试中。
+
+--2021-12-04 10:53:16--  (尝试次数：20)  https://api.github.com/repos/ohmyzsh/ohmyzsh/commits/master
+正在连接 api.github.com (api.github.com)|40.82.112.5|:443... 失败：Operation timed out。
+放弃操作。
+
