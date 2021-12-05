@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+    alicloud:
+      access-key: LTAI5tPDdhDVfxbR4s21JAHj
+      secret-key: 0AdBxqugTND41vvGqcSCBlb0FEuiSD
+      oss:
+        endpoint: oss-ap-southeast-1.aliyuncs.com
+        bucket: demo-114514
+
+  application:
+    name: demomarket-third-party
+
+server:
+  port: 30000
