@@ -3,6 +3,7 @@ package com.learn.demomarket.ware.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.learn.common.utils.PageUtils;
 import com.learn.demomarket.ware.entity.WareInfoEntity;
+import com.learn.demomarket.ware.vo.FareVo;
 
 import java.util.Map;
 
@@ -16,5 +17,7 @@ import java.util.Map;
 public interface WareInfoService extends IService<WareInfoEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    FareVo getFare(Long addrId);
 }
 
