@@ -1,6 +1,8 @@
 package com.learn.demomarket.product.service.impl;
 
+import com.learn.demomarket.product.service.CategoryBrandRelationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -15,11 +17,17 @@ import com.learn.common.utils.Query;
 import com.learn.demomarket.product.dao.CategoryDao;
 import com.learn.demomarket.product.entity.CategoryEntity;
 import com.learn.demomarket.product.service.CategoryService;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
 
 
 @Service("categoryService")
 public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
 
+
+    @Resource
+    private CategoryBrandRelationService categoryBrandRelationService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -98,6 +106,46 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         Collections.reverse(parentPath);
 
         return parentPath.toArray(new Long[0]);
+    }
+
+
+    /**
+     * 级联更新所有关联的数据
+     *
+     * @CacheEvict:失效模式
+     * @CachePut:双写模式，需要有返回值
+     * 1、同时进行多种缓存操作：@Caching
+     * 2、指定删除某个分区下的所有数据 @CacheEvict(value = "category",allEntries = true)
+     * 3、存储同一类型的数据，都可以指定为同一分区
+     * @param category
+     */
+    // @Caching(evict = {
+    //         @CacheEvict(value = "category",key = "'getLevel1Categorys'"),
+    //         @CacheEvict(value = "category",key = "'getCatalogJson'")
+    // })
+//    @CacheEvict(value = "category",allEntries = true)       //删除某个分区下的所有数据
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void updateCascade(CategoryEntity category) {
+//        RReadWriteLock readWriteLock = redissonClient.getReadWriteLock("catalogJson-lock");
+//        //创建写锁
+//        RLock rLock = readWriteLock.writeLock();
+//
+//        try {
+//            rLock.lock();
+//            this.baseMapper.updateById(category);
+//            categoryBrandRelationService.updateCategory(category.getCatId(), category.getName());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        } finally {
+//            rLock.unlock();
+//        }
+
+        //同时修改缓存中的数据
+        //删除缓存,等待下一次主动查询进行更新
+
+        this.updateById(category);
+        categoryBrandRelationService.updateCategory(category.getCatId(), category.getName());
     }
 
     private List<Long> findParentPath(Long catelogId, List<Long> paths) {
