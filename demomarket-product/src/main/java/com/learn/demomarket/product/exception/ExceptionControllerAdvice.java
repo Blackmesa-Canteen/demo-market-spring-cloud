@@ -35,11 +35,11 @@ public class ExceptionControllerAdvice {
             errorMap.put(fieldError.getField(), fieldError.getDefaultMessage());
         });
 
-        return R.error(BizCodeEnume.VALIDATION_EXCEPTION.getCode(), "数据校验问题").put("data", errorMap);
+        return R.error(BizCodeEnume.VAILD_EXCEPTION.getCode(), "数据校验问题").put("data", errorMap);
     }
 
     @ExceptionHandler(value = Throwable.class)
     public R handleException(Throwable throwable) {
-        return R.error(BizCodeEnume.UNKNOWN_EXCEPTION.getCode(), BizCodeEnume.UNKNOWN_EXCEPTION.getMessage());
+        return R.error(BizCodeEnume.UNKNOW_EXCEPTION.getCode(), BizCodeEnume.UNKNOW_EXCEPTION.getMessage());
     }
 }

@@ -1,9 +1,12 @@
 package com.learn.demomarket.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 // import org.apache.shiro.authz.annotation.RequiresPermissions;
+import com.learn.demomarket.product.entity.ProductAttrValueEntity;
+import com.learn.demomarket.product.service.ProductAttrValueService;
 import com.learn.demomarket.product.vo.AttrRespVo;
 import com.learn.demomarket.product.vo.AttrVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +30,21 @@ import com.learn.common.utils.R;
 public class AttrController {
     @Autowired
     private AttrService attrService;
+
+    @Autowired
+    private ProductAttrValueService productAttrValueService;
+
+
+    /**
+     *  获取spu规格
+     */
+    @GetMapping("/base/listforspu/{spuId}")
+    public R baseAttrlistforspu(@PathVariable("spuId") Long spuId){
+
+        List<ProductAttrValueEntity> entities = productAttrValueService.baseAttrListforspu(spuId);
+
+        return R.ok().put("data",entities);
+    }
 
     /**
      * 查询规格参数信息
