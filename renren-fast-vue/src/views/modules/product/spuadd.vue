@@ -349,6 +349,7 @@
 import CategoryCascader from "../common/category-cascader";
 import BrandSelect from "../common/brand-select";
 import MultiUpload from "@/components/upload/multiUpload";
+import PubSub from 'pubsub-js'
 export default {
   //import引入的组件需要注入到对象中才能使用
   components: { CategoryCascader, BrandSelect, MultiUpload },
@@ -458,13 +459,13 @@ export default {
         brandId: "",
         weight: "",
         publishStatus: 0,
-        decript: [], 
-        images: [], 
+        decript: [],
+        images: [],
         bounds: {
           buyBounds: 0,
           growBounds: 0
         },
-        baseAttrs: [], 
+        baseAttrs: [],
         skus: []
       };
     },

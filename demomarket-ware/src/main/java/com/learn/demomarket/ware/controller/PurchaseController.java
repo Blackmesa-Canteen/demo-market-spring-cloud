@@ -1,6 +1,7 @@
 package com.learn.demomarket.ware.controller;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -107,6 +108,8 @@ public class PurchaseController {
     @RequestMapping("/save")
     // @RequiresPermissions("ware:purchase:save")
     public R save(@RequestBody PurchaseEntity purchase){
+        purchase.setCreateTime(new Date());
+        purchase.setUpdateTime(new Date());
 		purchaseService.save(purchase);
 
         return R.ok();

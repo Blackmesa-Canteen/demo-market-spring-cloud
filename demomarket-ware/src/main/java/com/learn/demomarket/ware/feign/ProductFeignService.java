@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @createTime: 2020-06-01 21:26
  **/
 
-@FeignClient(value = "gulimall-product")
+@FeignClient(value = "demomarket-product")
 public interface ProductFeignService {
 
     /**

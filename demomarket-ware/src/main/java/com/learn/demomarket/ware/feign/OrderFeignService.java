@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @createTime: 2020-07-06 23:28
  **/
 
-@FeignClient("gulimall-order")
+@FeignClient("demomarket-order")
 public interface OrderFeignService {
 
     @GetMapping(value = "/order/order/status/{orderSn}")
