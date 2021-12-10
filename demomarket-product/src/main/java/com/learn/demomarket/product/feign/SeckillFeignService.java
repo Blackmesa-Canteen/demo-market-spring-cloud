@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @createTime: 2020-07-10 15:53
  **/
 
-//@FeignClient(value = "gulimall-seckill",fallback = SeckillFeignServiceFallBack.class)
+//@FeignClient(value = "demomarket-seckill",fallback = SeckillFeignServiceFallBack.class)
 //public interface SeckillFeignService {
 //
 //    /**

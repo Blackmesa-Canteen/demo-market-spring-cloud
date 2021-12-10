@@ -1,5 +1,6 @@
 package com.learn.demomarket.product.feign;
 
+import com.learn.common.to.es.SkuEsModel;
 import com.learn.common.utils.R;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,10 +15,10 @@ import java.util.List;
  * @createTime: 2020-06-06 17:12
  **/
 
-//@FeignClient("@FeignClient-search")
-//public interface SearchFeignService {
+@FeignClient("demomarket-search")
+public interface SearchFeignService {
 
-//    @PostMapping(value = "/search/save/product")
-//    public R productStatusUp(@RequestBody List<SkuEsModel> skuEsModels);
-//
-//}
+    @PostMapping(value = "/search/save/product")
+    R productStatusUp(@RequestBody List<SkuEsModel> skuEsModels);
+
+}
