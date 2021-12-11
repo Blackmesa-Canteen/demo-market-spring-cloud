@@ -43,6 +43,11 @@ spring:
           filters:
             - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
 
+        - id: demomarket_host_route
+          uri: lb://demomarket-product
+          predicates:
+            - Host=**.demomarket.com
+
 
   application:
     name: demomarket-gateway

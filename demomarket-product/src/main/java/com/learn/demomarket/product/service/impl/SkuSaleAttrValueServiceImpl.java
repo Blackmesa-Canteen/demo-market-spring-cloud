@@ -1,5 +1,6 @@
 package com.learn.demomarket.product.service.impl;
 
+import com.learn.demomarket.product.vo.SkuItemSaleAttrVo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,6 +36,15 @@ public class SkuSaleAttrValueServiceImpl extends ServiceImpl<SkuSaleAttrValueDao
         List<String> stringList = baseMapper.getSkuSaleAttrValuesAsStringList(skuId);
 
         return stringList;
+    }
+
+    @Override
+    public List<SkuItemSaleAttrVo> getSaleAttrBySpuId(Long spuId) {
+        SkuSaleAttrValueDao baseMapper = this.getBaseMapper();
+        List<SkuItemSaleAttrVo> saleAttrVos = baseMapper.getSaleAttrBySpuId(spuId);
+
+        return saleAttrVos;
+
     }
 
 }

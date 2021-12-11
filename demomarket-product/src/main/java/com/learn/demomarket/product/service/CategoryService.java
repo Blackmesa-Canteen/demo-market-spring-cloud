@@ -3,6 +3,7 @@ package com.learn.demomarket.product.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.learn.common.utils.PageUtils;
 import com.learn.demomarket.product.entity.CategoryEntity;
+import com.learn.demomarket.product.vo.Catelog2Vo;
 
 import java.util.List;
 import java.util.Map;
@@ -26,5 +27,10 @@ public interface CategoryService extends IService<CategoryEntity> {
     Long[] findCatelogPath(Long catelogId);
 
     void updateCascade(CategoryEntity category);
+
+    List<CategoryEntity> getLevel1Categorys();
+
+    Map<String, List<Catelog2Vo>> getCatalogJson();
+
 }
 
