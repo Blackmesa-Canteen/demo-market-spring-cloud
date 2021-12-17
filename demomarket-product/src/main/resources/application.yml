@@ -15,10 +15,17 @@ spring:
     name: demomarket-product
   thymeleaf:
     cache: false
-  resources:
-    static-locations:
-      - classpath:templates/
-      - classpath:/
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+  session:
+    store-type: redis
+#  resources:
+#    static-locations:
+#      - classpath:templates/
+#      - classpath:/
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/**/*.xml

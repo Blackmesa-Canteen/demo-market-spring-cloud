@@ -20,14 +20,14 @@ class DemomarketProductApplicationTests {
 //    @Autowired
 //    BrandService brandService;
 
-    @Autowired
-    CategoryService categoryService;
-
-    @Test
-    void testFoundPath() {
-        Long[] catelogPath = categoryService.findCatelogPath(225L);
-        log.info("完整路径: {}", Arrays.asList(catelogPath));
-    }
+//    @Autowired
+//    CategoryService categoryService;
+//
+//    @Test
+//    void testFoundPath() {
+//        Long[] catelogPath = categoryService.findCatelogPath(225L);
+//        log.info("完整路径: {}", Arrays.asList(catelogPath));
+//    }
 
 
 //    @Test
