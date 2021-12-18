@@ -5,11 +5,19 @@ spring:
         server-addr: 127.0.0.1:8848
 
     alicloud:
+      # 已经脱敏了, 黑客请不用麻烦偷这个key了.
       access-key: LTAI5tPDdhDVfxbR4s21JAHj
       secret-key: 0AdBxqugTND41vvGqcSCBlb0FEuiSD
       oss:
         endpoint: oss-ap-southeast-1.aliyuncs.com
         bucket: demo-114514
+
+      sms:
+        host: https://fesms.market.alicloudapi.com
+        path: /sms/
+        skin: 1
+        sign: 1
+        appcode: 9***f
 
   application:
     name: demomarket-third-party

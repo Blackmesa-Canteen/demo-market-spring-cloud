@@ -53,6 +53,11 @@ spring:
           predicates:
             - Host=search.demomarket.com
 
+        - id: demomarket_auth_route
+          uri: lb://demomarket-auth-server
+          predicates:
+            - Host=auth.demomarket.com
+
 
   application:
     name: demomarket-gateway
