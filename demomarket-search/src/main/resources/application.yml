@@ -8,5 +8,8 @@ spring:
   application:
     name: demomarket-search
 
+  thymeleaf:
+    cache: false
+
 server:
   port: 12000

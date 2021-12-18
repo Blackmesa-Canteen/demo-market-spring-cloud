@@ -46,7 +46,12 @@ spring:
         - id: demomarket_host_route
           uri: lb://demomarket-product
           predicates:
-            - Host=**.demomarket.com
+            - Host=demomarket.com
+
+        - id: demomarket_search_route
+          uri: lb://demomarket-search
+          predicates:
+            - Host=search.demomarket.com
 
 
   application:
