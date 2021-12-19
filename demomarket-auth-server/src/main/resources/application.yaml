@@ -7,5 +7,12 @@ spring:
   thymeleaf:
     cache: false
 
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+  session:
+    store-type: redis
+
 server:
   port: 20000

@@ -178,7 +178,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             return esModel;
         }).collect(Collectors.toList());
 
-//        //TODO 5、将数据发给es进行保存：gulimall-search
+//        //TODO 5、将数据发给es进行保存：demomarket-search
         R r = searchFeignService.productStatusUp(collect);
 
         if (r.getCode() == 0) {
@@ -230,7 +230,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         productAttrValueService.saveProductAttr(collect);
 
 
-        //5、保存spu的积分信息：gulimall_sms--->sms_spu_bounds
+        //5、保存spu的积分信息：demomarket_sms--->sms_spu_bounds
         Bounds bounds = vo.getBounds();
         SpuBoundTo spuBoundTo = new SpuBoundTo();
         BeanUtils.copyProperties(bounds, spuBoundTo);
@@ -289,7 +289,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
                 skuSaleAttrValueService.saveBatch(skuSaleAttrValueEntities);
 
-                //5、4）、sku的优惠、满减等信息：gulimall_sms--->sms_sku_ladder、sms_sku_full_reduction、sms_member_price
+                //5、4）、sku的优惠、满减等信息：demomarket_sms--->sms_sku_ladder、sms_sku_full_reduction、sms_member_price
                 SkuReductionTo skuReductionTo = new SkuReductionTo();
                 BeanUtils.copyProperties(item, skuReductionTo);
                 skuReductionTo.setSkuId(skuId);
